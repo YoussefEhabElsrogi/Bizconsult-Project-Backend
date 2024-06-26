@@ -11,18 +11,13 @@
                     <h2 class="h5 page-title">{{ __('keywords.services') }}</h2>
 
                     <div class="page-title-right">
-                        <a href="{{ route('admin.services.create') }}" class="btn btn-sm btn-primary ">
-                            {{ __('keywords.add_new') }}
-                        </a>
+                        <x-action-button href="{{ route('admin.services.create') }}" color='primary'
+                            content="{{ __('keywords.add_new') }}"></x-action-button>
                     </div>
                 </div>
                 <div class="card shadow">
                     <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-success text-center">
-                                {{ session('success') }}
-                            </div>
-                        @endif
+                        <x-success-alert></x-success-alert>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -41,33 +36,26 @@
                                             <i class="{{ $service->icon }} fa-2x"></i>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.services.edit', ['service' => $service]) }}"
-                                                class="btn btn-sm btn-success">
-                                                <i class="fe fe-24 fe-edit"></i>
-                                            </a>
-                                            <a href="{{ route('admin.services.show', ['service' => $service]) }}"
-                                                class="btn btn-sm btn-primary ">
-                                                <i class="fe fe-24 fe-eye"></i>
-                                            </a>
-                                            <form action="{{ route('admin.services.destroy', ['service' => $service]) }}"
-                                                method="POST" class="d-inline" id="deleteForm-{{ $service->id }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="button"
-                                                    class="btn btn-sm btn-danger"onclick="confirmDelete({{ $service->id }})">
-                                                    <i class="fe fe-24 fe-trash-2"></i>
-                                                </button>
-                                            </form>
+
+                                            <x-action-button
+                                                href="{{ route('admin.services.edit', ['service' => $service]) }}"
+                                                color="success" content='<i class="fe fe-24 fe-edit"></i>'>
+                                            </x-action-button>
+
+                                            <x-action-button
+                                                href="{{ route('admin.services.show', ['service' => $service]) }}"
+                                                color="primary" content=' <i class="fe fe-24 fe-eye"></i>'>
+                                            </x-action-button>
+
+                                            <x-delete-button
+                                                href="{{ route('admin.services.destroy', ['service' => $service]) }}"
+                                                id="{{ $service->id }}">
+                                            </x-delete-button>
+
                                         </td>
                                     </tr>
                                 @empty
-                                    <tr>
-                                        <td colspan="4">
-                                            <div class="alert alert-danger text-center">
-                                                {{ __('keywords.no_records_found') }}
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <x-empty-alert></x-empty-alert>
                                 @endforelse
                                 </tr>
                             </tbody>
@@ -78,11 +66,4 @@
             </div>
         </div>
     </div>
-    <script>
-        function confirmDelete(id) {
-            if (confirm('Are you sure you want to delete this record ?')) {
-                document.getElementById('deleteForm-' + id).submit();
-            }
-        }
-    </script>
 @endsection

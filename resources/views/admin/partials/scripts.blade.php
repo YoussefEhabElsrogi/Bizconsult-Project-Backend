@@ -212,6 +212,12 @@
     }
     gtag('js', new Date());
     gtag('config', 'UA-56159088-1');
+
+    function confirmDelete(id) {
+        if (confirm('Are you sure you want to delete this record ?')) {
+            document.getElementById('deleteForm-' + id).submit();
+        }
+    }
 </script>
 </body>
 

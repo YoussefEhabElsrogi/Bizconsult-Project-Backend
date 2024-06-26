@@ -13,7 +13,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::paginate(10);
+        $services = Service::paginate(config('pagenation.count'));
         return view('admin.services.index', get_defined_vars());
     }
 
@@ -27,8 +27,7 @@ class ServiceController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */
-    public function store(StoreserviceRequest $request)
+     */    public function store(StoreserviceRequest $request)
     {
         $validatedData = $request->validated();
 
