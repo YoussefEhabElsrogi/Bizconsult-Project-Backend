@@ -14,25 +14,25 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <x-form-label filed='title'></x-form-label>
+                                        <x-form-label field='title'></x-form-label>
                                         <input type="text" id="title" name="title" class="form-control"
                                             placeholder="{{ __('keywords.title') }}">
-                                        <x-validation-error filed='title'></x-validation-error>
+                                        <x-validation-error field='title'></x-validation-error>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <x-form-label filed='icon'></x-form-label>
+                                        <x-form-label field='icon'></x-form-label>
                                         <input type="text" id="icon" name="icon" class="form-control"
                                             placeholder="{{ __('keywords.icon') }}">
-                                        <x-validation-error filed='icon'></x-validation-error>
+                                        <x-validation-error field='icon'></x-validation-error>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group mb-3">
-                                        <x-form-label filed='description'></x-form-label>
+                                        <x-form-label field='description'></x-form-label>
                                         <textarea id="description" name="description" class="form-control" placeholder="{{ __('keywords.description') }}"></textarea>
-                                        <x-validation-error filed='description'></x-validation-error>
+                                        <x-validation-error field='description'></x-validation-error>
                                     </div>
                                 </div>
                             </div>

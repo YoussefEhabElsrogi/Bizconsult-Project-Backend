@@ -33,8 +33,13 @@
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             {{-- Services --}}
-            <x-sidebar-tab herf="{{ route('admin.services.index') }}" icon="fe-codesandbox"
+            <x-sidebar-tab href="{{ route('admin.services.index') }}" icon="fe-codesandbox"
                 name="{{ __('keywords.services') }}"></x-sidebar-tab>
+
+            {{-- features --}}
+            <x-sidebar-tab href="{{ route('admin.features.index') }}" icon="fe-bookmark"
+                name="{{ __('keywords.features') }}"></x-sidebar-tab>
+
         </ul>
     </nav>
 </aside>
