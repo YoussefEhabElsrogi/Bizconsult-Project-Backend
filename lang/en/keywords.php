@@ -60,6 +60,11 @@ return [
     'show_testmonial'    => 'Show Testmonial',
     'edit_testmonial'    => 'Edit Testmonial',
 
+    // companies module
+    'companies' => 'Companies',
+    'add_new_company' => 'Add New Company',
+    'edit_company'    => 'Edit Company',
+
     // settings module
     'settings'  => 'Settings',
     'address'   => 'Address',
