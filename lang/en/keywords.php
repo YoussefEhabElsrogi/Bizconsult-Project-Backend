@@ -65,13 +65,19 @@ return [
     'add_new_company' => 'Add New Company',
     'edit_company'    => 'Edit Company',
 
+    // members module
+    'members' => 'Members',
+    'facebook' => 'Facebook',
+    'twitter' => 'Twitter',
+    'linkedin' => 'Linkedin',
+    'add_new_member' => 'Add New Member',
+    'show_membert'    => 'Show Member',
+    'edit_member' => 'Edit Member',
+
     // settings module
     'settings'  => 'Settings',
     'address'   => 'Address',
     'phone'     => 'Phone',
-    'facebook'  => 'Facebook',
-    'linkedin'  => 'Linkedin',
     'instagram' => 'Instagram',
     'youtube'   => 'Youtube',
-    'twitter'   => 'Twitter',
 ];

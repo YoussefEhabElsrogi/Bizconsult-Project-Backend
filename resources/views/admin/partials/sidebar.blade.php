@@ -56,6 +56,10 @@
             <x-sidebar-tab href="{{ route('admin.companies.index') }}" icon="fe-briefcase"
                 name="{{ __('keywords.companies') }}"></x-sidebar-tab>
 
+            {{-- Members --}}
+            <x-sidebar-tab href="{{ route('admin.members.index') }}" icon="fe-users"
+                name="{{ __('keywords.members') }}"></x-sidebar-tab>
+
             {{-- Settings --}}
             {{-- <x-sidebar-tab href="{{ route('admin.settings.index') }}" icon="fe-settings"
                 name="{{ __('keywords.settings') }}"></x-sidebar-tab> --}}

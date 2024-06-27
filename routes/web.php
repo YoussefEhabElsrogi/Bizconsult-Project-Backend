@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubscriberController;
@@ -27,7 +28,6 @@ Route::name('front.')->group(function () {
     Route::view('/service', 'front.service')->name('service');
     Route::view('/contact', 'front.contact')->name('contact');
 });
-
 
 // ADMIN ROUTS
 Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->middleware(
@@ -65,6 +65,11 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->midd
         // =================================== COMPANIES
         Route::controller(CompanyController::class)->group(function () {
             Route::resource('companies', CompanyController::class)->except('show');
+        });
+
+        // =================================== MEMBERS
+        Route::controller(MemberController::class)->group(function () {
+            Route::resource('members', MemberController::class);
         });
     });
     require __DIR__ . '/auth.php';
