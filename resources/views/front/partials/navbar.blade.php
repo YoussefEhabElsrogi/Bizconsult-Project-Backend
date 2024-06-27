@@ -8,7 +8,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
-            <a href="#" class="nav-item nav-link @yield('home-active')">Home</a>
+            <a href="{{ route('front.index') }}" class="nav-item nav-link @yield('home-active')">Home</a>
             <a href="{{ route('front.about') }}" class="nav-item nav-link @yield('about-active')">About</a>
             <a href="{{ route('front.service') }}" class="nav-item nav-link @yield('service-active')">Service</a>
             <a href="{{ route('front.contact') }}" class="nav-item nav-link @yield('contact-active')">Contact</a>

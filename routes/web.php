@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\FeatureController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubscriberController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -19,11 +20,12 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 // FRONT ROUTS
 Route::name('front.')->group(function () {
-    Route::view('/', 'fornt.index')->name('index');
+    Route::view('/', 'front.index')->name('index');
     Route::view('/about', 'front.about')->name('about');
     Route::view('/service', 'front.service')->name('service');
     Route::view('/contact', 'front.contact')->name('contact');
 });
+
 
 // ADMIN ROUTS
 Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->middleware(
@@ -38,14 +40,20 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->midd
             Route::resource('services', ServiceController::class);
         });
 
-        // =================================== FEATURE
+        // =================================== FEATURES
         Route::controller(FeatureController::class)->group(function () {
             Route::resource('features', FeatureController::class);
         });
+
+        // =================================== MESSAGES
+        Route::controller(MessageController::class)->group(function () {
+            Route::resource('messages', MessageController::class)->only(['index', 'show', 'destroy']);
+        });
+
+        // =================================== SUBSCRIBERS
+        Route::controller(SubscriberController::class)->group(function () {
+            Route::resource('subscribers', SubscriberController::class)->only(['index', 'destroy']);
+        });
     });
     require __DIR__ . '/auth.php';
-});
-
-Route::get('/', function () {
-    return view('front.index');
 });
