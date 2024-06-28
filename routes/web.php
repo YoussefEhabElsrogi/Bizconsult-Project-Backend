@@ -5,6 +5,7 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestmonialController;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +71,11 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->midd
         // =================================== MEMBERS
         Route::controller(MemberController::class)->group(function () {
             Route::resource('members', MemberController::class);
+        });
+
+        // =================================== SETTING
+        Route::controller(SettingController::class)->group(function () {
+            Route::resource('settings', SettingController::class)->only('index', 'update');
         });
     });
     require __DIR__ . '/auth.php';
