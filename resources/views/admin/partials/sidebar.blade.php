@@ -32,6 +32,11 @@
             <span>{{ __('keywords.components') }}</span>
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
+
+            {{-- Abouts --}}
+            <x-sidebar-tab href="{{ route('admin.abouts.index') }}" icon="fe-heart"
+                name="{{ __('keywords.abouts') }}"></x-sidebar-tab>
+
             {{-- Services --}}
             <x-sidebar-tab href="{{ route('admin.services.index') }}" icon="fe-codesandbox"
                 name="{{ __('keywords.services') }}"></x-sidebar-tab>

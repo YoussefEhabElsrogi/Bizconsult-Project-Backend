@@ -74,6 +74,11 @@ return [
     'show_membert'    => 'Show Member',
     'edit_member' => 'Edit Member',
 
+    // abouts module
+    'abouts' => 'Abouts',
+    'edit_about' => 'Edit About',
+    'add_new_about'=> 'Add New About',
+
     // settings module
     'settings'  => 'Settings',
     'address'   => 'Address',

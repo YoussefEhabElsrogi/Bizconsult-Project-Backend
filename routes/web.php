@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FrontController;
@@ -81,6 +82,11 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->midd
         // =================================== MEMBERS
         Route::controller(MemberController::class)->group(function () {
             Route::resource('members', MemberController::class);
+        });
+
+        // =================================== ABOUTS
+        Route::controller(AboutController::class)->group(function () {
+            Route::resource('abouts', AboutController::class)->except('show');
         });
 
         // =================================== SETTING
