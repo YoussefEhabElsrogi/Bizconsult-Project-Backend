@@ -22,13 +22,33 @@ class StoreSubscriberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //  'title' => 'required|string',
+            'email' => 'required|email|unique:subscribers,email',
         ];
     }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'The email field is required.',
+            'email.email' => 'The email must be a valid email address.',
+            'email.unique' => 'The email has already been taken.',
+        ];
+    }
+
+    /**
+     * Get custom attribute names for validator errors.
+     *
+     * @return array
+     */
     public function attributes(): array
     {
         return [
-         //  'title' => __('keywords.title'),
+            'email' => 'Email Address',
         ];
     }
 }

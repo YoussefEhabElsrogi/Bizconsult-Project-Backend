@@ -22,13 +22,37 @@ class StoreMessageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //  'title' => 'required|string',
+            'name'    => 'required|string',
+            'email'   => 'required|email',
+            'subject' => 'required',
+            'message' => 'required',
         ];
     }
+
+    /**
+     * Get custom messages for validator errors.
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required'    => 'The name field is required.',
+            'email.required'   => 'The email field is required.',
+            'email.email'      => 'The email must be a valid email address.',
+            'subject.required' => 'The subject field is required.',
+            'message.required' => 'The message field is required.',
+        ];
+    }
+
+    /**
+     * Get custom attribute names.
+     */
     public function attributes(): array
     {
         return [
-         //  'title' => __('keywords.title'),
+            'name'    => 'name',
+            'email'   => 'email',
+            'subject' => 'subject',
+            'message' => 'message',
         ];
     }
 }

@@ -33,7 +33,7 @@
                                         <td>{{ $services->firstItem() + $loop->index }}</td>
                                         <td>{{ $service->title }}</td>
                                         <td>
-                                            <i class="{{ $service->icon }} fa-2x"></i>
+                                            {{ $service->icon }}
                                         </td>
                                         <td>
 

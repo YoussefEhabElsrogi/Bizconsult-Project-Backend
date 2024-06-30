@@ -34,14 +34,8 @@ class CompanyController extends Controller
     {
         $validatedData = $request->validated();
 
-        // image uploading
-        // 1- get image
-        $image = $request->image;
-        // 2- change it's current name
-        $newImageName = time() . '-' . $image->getClientOriginalName();
-        // 3-move image to my projet
-        $image->storeAs('companies', $newImageName, 'public');
-        // 4- save new name to database record
+        $newImageName = storeImage($request, 'companies');
+
         $validatedData['image'] = $newImageName;
 
         Company::create($validatedData);

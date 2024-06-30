@@ -20,7 +20,7 @@
                                 <div class="form-group mb-3">
                                     <label for="icon">{{ __('keywords.icon') }}</label>
                                     <div class="mt-2">
-                                        <i class="{{ $service->icon }} fa-2x"></i>
+                                        {{ $service->icon }}
                                     </div>
                                 </div>
                             </div>

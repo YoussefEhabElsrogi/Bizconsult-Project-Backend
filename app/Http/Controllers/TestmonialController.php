@@ -34,14 +34,8 @@ class TestmonialController extends Controller
     {
         $validatedData = $request->validated();
 
-        // image uploading
-        // 1- get image
-        $image = $request->image;
-        // 2- change it's current name
-        $newImageName = time() . '-' . $image->getClientOriginalName();
-        // 3-move image to my projet
-        $image->storeAs('testmonials', $newImageName, 'public');
-        // 4- save new name to database record
+        $newImageName = storeImage($request, 'testmonials');
+
         $validatedData['image'] = $newImageName;
 
         Testmonial::create($validatedData);

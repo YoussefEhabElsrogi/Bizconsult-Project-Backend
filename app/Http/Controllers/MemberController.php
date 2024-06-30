@@ -33,14 +33,8 @@ class MemberController extends Controller
     {
         $validatedData = $request->validated();
 
-        // image uploading
-        // 1- get image
-        $image = $request->image;
-        // 2- change it's current name
-        $newImageName = time() . '-' . $image->getClientOriginalName();
-        // 3-move image to my projet
-        $image->storeAs('members', $newImageName, 'public');
-        // 4- save new name to database record
+        $newImageName = storeImage($request, 'members');
+
         $validatedData['image'] = $newImageName;
 
         Member::create($validatedData);
@@ -98,7 +92,7 @@ class MemberController extends Controller
     public function destroy(Member $member)
     {
 
-        Storage::delete("public/testmonials/$member->image");
+        Storage::delete("public/members/$member->image");
 
         $member->delete();
 
