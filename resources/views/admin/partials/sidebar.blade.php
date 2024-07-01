@@ -65,6 +65,10 @@
             <x-sidebar-tab href="{{ route('admin.members.index') }}" icon="fe-users"
                 name="{{ __('keywords.members') }}"></x-sidebar-tab>
 
+            {{-- Teams --}}
+            <x-sidebar-tab href="{{ route('admin.teams.index') }}" icon="fe-user-minus"
+                name="{{ __('keywords.teams') }}"></x-sidebar-tab>
+
             {{-- Settings  --}}
             <x-sidebar-tab href="{{ route('admin.settings.index') }}" icon="fe-settings"
                 name="{{ __('keywords.settings') }}"></x-sidebar-tab>

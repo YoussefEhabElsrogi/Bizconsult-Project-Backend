@@ -14,6 +14,7 @@ class SettingController extends Controller
     public function index()
     {
         $setting = Setting::findOrFail(1);
+
         return view('admin.settings.index', get_defined_vars());
     }
 

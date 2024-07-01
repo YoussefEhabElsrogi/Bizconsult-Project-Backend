@@ -9,6 +9,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestmonialController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -87,6 +88,11 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->midd
         // =================================== ABOUTS
         Route::controller(AboutController::class)->group(function () {
             Route::resource('abouts', AboutController::class)->except('show');
+        });
+
+        // =================================== TEAMS
+        Route::controller(TeamController::class)->group(function () {
+            Route::resource('teams', TeamController::class);
         });
 
         // =================================== SETTING

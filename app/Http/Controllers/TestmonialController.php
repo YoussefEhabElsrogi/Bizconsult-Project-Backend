@@ -66,21 +66,13 @@ class TestmonialController extends Controller
     {
         $validatedData = $request->validated();
 
-        // chekc photo is found or not  => if has image uploading... or isn't imgage updated
+        // Update the image if a new image is uploaded
+        $newImageName = updateImage($request, 'testmonials', $testmonial);
 
-        if ($request->hasFile('image')) :
-            // image uploading
-            // 1- delete old image
-            Storage::delete("public/testmonials/$testmonial->image");
-            // 2- get imgage
-            $image = $request->image;
-            // 3- change it's current name
-            $newImageName = time() . '-' . $image->getClientOriginalName();
-            // 4- move image to my project
-            $image->storeAs('testmonials', $newImageName, 'public');
-            // 5- save new name to database record
+        // If there is a new image name, update the validated data array
+        if ($newImageName) {
             $validatedData['image'] = $newImageName;
-        endif;
+        }
 
         $testmonial->update($validatedData);
 

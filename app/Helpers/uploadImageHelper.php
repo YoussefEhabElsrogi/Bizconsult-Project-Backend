@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,24 +18,25 @@ function storeImage(Request $request, string $directory)
     // 4- Return the new image name
     return $newImageName;
 }
+function updateImage(Request $request, string $directory, Model $model): ?string
+{
+    if ($request->hasFile('image')) {
+        // Delete the old image
+        Storage::delete("public/$directory/{$model->image}");
 
-// function updateImage(Request $request, string $directory, $model)
-// {
-//     $validatedData = $request->validated();
+        // Get the new image
+        $image = $request->file('image');
 
-//     // chekc photo is found or not  => if has image uploading... or isn't imgage updated
+        // Change the current name of the image
+        $newImageName = time() . '-' . $image->getClientOriginalName();
 
-//     if ($request->hasFile('image')) :
-//         // image uploading
-//         // 1- delete old image
-//         Storage::delete("public/$directory/{$model->image}");
-//         // 2- get imgage
-//         $image = $request->image;
-//         // 3- change it's current name
-//         $newImageName = time() . '-' . $image->getClientOriginalName();
-//         // 4- move image to my project
-//         $image->storeAs("$directory", $newImageName, 'public');
-//         // 5- save new name to database record
-//         $validatedData['image'] = $newImageName;
-//     endif;
-// }
+        // Move the image to the project directory
+        $image->storeAs($directory, $newImageName, 'public');
+
+        // Return the new image name
+        return $newImageName;
+    }
+
+    // Return null if no image was uploaded
+    return null;
+}

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\StoreSubscriberRequest;
 use App\Models\Message;
 use App\Models\Subscriber;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller

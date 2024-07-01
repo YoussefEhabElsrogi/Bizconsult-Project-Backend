@@ -77,7 +77,13 @@ return [
     // abouts module
     'abouts' => 'Abouts',
     'edit_about' => 'Edit About',
-    'add_new_about'=> 'Add New About',
+    'add_new_about' => 'Add New About',
+
+    // teams module
+    'teams' => 'Teams',
+    'edit_team' => 'Edit Team',
+    'add_new_team' => 'Add New Team',
+    'show_team' => 'Show Team',
 
     // settings module
     'settings'  => 'Settings',
