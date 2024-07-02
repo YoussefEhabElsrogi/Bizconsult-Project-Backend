@@ -21,14 +21,14 @@
             <div class="form-group">
                 <label for="inputEmail" class="sr-only">{{ __('keywords.email') }}</label>
                 <input type="email" id="inputEmail" class="form-control form-control-lg" placeholder="Email address"
-                    name="email" value='Youssef@gmail.com'>
+                    name="email">
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <div class="form-group">
                 <label for="inputPassword" class="sr-only">{{ __('keywords.password') }}</label>
                 <input type="password" id="inputPassword" class="form-control form-control-lg" type="password"
-                    name="password" value="123123123" placeholder="Password">
+                    name="password" placeholder="Password">
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
             <div class="checkbox mb-3">
